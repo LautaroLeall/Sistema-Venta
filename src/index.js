@@ -5,12 +5,13 @@ export * from './components/templates/HomeTemplate'
 export * from './components/templates/LoginTemplate'
 // Organismos
 export * from './components/organismos/ToggleTema'
+export * from './components/organismos/Footer'
 export * from './components/organismos/Sidebar/Sidebar'
 export * from './components/organismos/formularios/InputText2'
-export * from './components/atomos/Title'
 // Atomos
 export * from './components/atomos/Icono'
 export * from './components/atomos/Linea'
+export * from './components/atomos/Title'
 // Moleculas
 export * from './components/moleculas/Btnsave'
 // ESTILOS
@@ -23,8 +24,15 @@ export * from './pages/Home'
 export * from './pages/Login'
 // STORE
 export * from './store/ThemeStore'
+export * from './store/AuthStore'
 // UTILS
 export * from './utils/dataEstatica'
+// CONTEXT
+export * from './context/AuthContent'
+// HOOKS
+export * from './hooks/ProtectedRoute'
+// SUPABASE
+export * from './supabase/supabase.config'
 // ROUTERS
 export * from './routers/routes'
 // MAIN
