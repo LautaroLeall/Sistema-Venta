@@ -8,7 +8,7 @@ export const Linea = styled.div`
     position: relative;
     text-align: center;
     span{
-        top: -15px;
+        top: -10px;
         position: absolute;
         background-color: ${({theme})=>theme.bgtotal};
         color: ${({theme}) => theme.color2};

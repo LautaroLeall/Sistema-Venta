@@ -1,31 +1,37 @@
 import styled, { ThemeProvider } from "styled-components";
-import { GlobalStyles, Login, MyRoutes, Sidebar, useThemeStore } from "./index";
+import { GlobalStyles, MyRoutes, Sidebar, useThemeStore, AuthContextProvider, Login } from "./index";
 import { Device } from "./styles/breakpoints";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { themeStyle } = useThemeStore()
+  const { pathname } = useLocation()
   return (
     <ThemeProvider theme={themeStyle}>
-      <Container className={sidebarOpen ? "active" : ""}>
-
+      <AuthContextProvider>
         <GlobalStyles />
+        {
+          pathname != "/login" ? (
+            <Container className={sidebarOpen ? "active" : ""}>
 
-        <section className="contentSidear">
-          <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
-        </section>
+              <section className="contentSidear">
+                <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
+              </section>
 
-        <section className="contentMenuhambur">
-          Menu Hamburguesa
-        </section>
+              <section className="contentMenuhambur">
+                Menu Hamburguesa
+              </section>
 
-        <section className="contentRouters">
-          <MyRoutes />
-          <Login />
-        </section>
+              <section className="contentRouters">
+                <MyRoutes />
+              </section>
 
-      </Container>
+            </Container>
+          ) : (<Login />)
+        }
+      </AuthContextProvider>
     </ThemeProvider>
   );
 }
@@ -34,7 +40,7 @@ const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   transition: 0.2s ease-in-out;
-  color: ${({theme}) => theme.text};
+  color: ${({ theme }) => theme.text};
   .contentSidear{
     display: none;
   }
@@ -42,7 +48,7 @@ const Container = styled.main`
     position: absolute;
   }
   .contentRouters{
-    grid-column: 1;
+    /* grid-column: 1; */
     width: 100%;
   }
   @media ${Device.tablet} {
