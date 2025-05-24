@@ -25,6 +25,7 @@ export * from './pages/Login'
 // STORE
 export * from './store/ThemeStore'
 export * from './store/AuthStore'
+export * from './store/EmpresaStore'
 // UTILS
 export * from './utils/dataEstatica'
 // CONTEXT
@@ -33,6 +34,11 @@ export * from './context/AuthContent'
 export * from './hooks/ProtectedRoute'
 // SUPABASE
 export * from './supabase/supabase.config'
+export * from './supabase/crudCategorias'
+export * from './supabase/crudEmpresa'
+export * from './supabase/crudUsuario'
+export * from './supabase/crudTipoDocumentos'
+export * from './supabase/crudRol'
 // ROUTERS
 export * from './routers/routes'
 // MAIN
