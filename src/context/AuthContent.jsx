@@ -11,8 +11,8 @@ export const AuthContextProvider = ({ children }) => {
                 setUser(null)
             } else {
                 setUser(session?.user)
-                console.log("Datos de usuario", session.user.id , session.user.email)
-                insertarDatos(session?.user.id , session?.user.email)
+                console.log("Datos de usuario", session.user.id, session.user.email)
+                insertarDatos(session?.user.id, session?.user.email)
             }
         });
         return () => {
@@ -20,13 +20,13 @@ export const AuthContextProvider = ({ children }) => {
         };
     }, []);
     const insertarDatos = async (id_auth, correo) => {
-        const response = await MostrarUsuarios({ id_auth: id_auth });
+        const response = await MostrarUsuarios({ id_auth:id_auth });
         if (response) {
             return;
         }
         else {
-            const responseEmpresa = await InsertarEmpresa({ id_auth: id_auth });
-            const responseTipoDoc = await MostrarTipoDocumentos({ id_empresa: responseEmpresa?.id, });
+            const responseEmpresa = await InsertarEmpresa({ id_auth:id_auth });
+            const responseTipoDoc = await MostrarTipoDocumentos({ id_empresa:responseEmpresa?.id, });
             console.log("Tipo documento", responseTipoDoc)
             const responseRol = await MostrarRolesxNombre({ nombre:"superAdmin" });
             const pUser = {
@@ -34,9 +34,10 @@ export const AuthContextProvider = ({ children }) => {
                 id_rol:responseRol?.id,
                 correo:correo,
                 fecharegistro:new Date(),
-                id_auth:id_auth,
+                id_auth:id_auth
             };
             await InsertarAdmin(pUser);
+
         }
     }
 

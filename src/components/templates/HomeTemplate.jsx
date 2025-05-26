@@ -4,7 +4,7 @@ import { UserAuth } from "../../context/AuthContent";
 
 export function HomeTemplate() {
     const { cerrarSesion } = useAuthStore();
-    const { user } = UserAuth();
+    // const { user } = UserAuth();
     return (<Container>
         <span>Hola</span>
         <button onClick={cerrarSesion}>Cerrar Sesión</button>

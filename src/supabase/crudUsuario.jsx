@@ -1,7 +1,8 @@
 import { supabase } from '../index'
 import Swal from 'sweetalert2'
 
-const tabla = "usuario"
+const tabla = "usuarios"
+
 export async function MostrarUsuarios(p) {
     const { data } = await supabase.from(tabla).select().eq("id_auth", p.id_auth).maybeSingle();
     return data;
