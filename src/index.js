@@ -3,6 +3,7 @@ export { default as App } from './App'
 // Templates
 export * from './components/templates/HomeTemplate'
 export * from './components/templates/LoginTemplate'
+export * from './components/templates/ConfiguracionesTemplate'
 // Organismos
 export * from './components/organismos/ToggleTema'
 export * from './components/organismos/Footer'
@@ -22,6 +23,7 @@ export * from './styles/variables'
 // PAGINAS
 export * from './pages/Home'
 export * from './pages/Login'
+export * from './pages/Configuraciones'
 // STORE
 export * from './store/ThemeStore'
 export * from './store/AuthStore'
